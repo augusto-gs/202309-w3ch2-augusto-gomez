@@ -1,0 +1,24 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #000000;
+}
+
+html {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+}
