@@ -7,11 +7,13 @@
 :root {
   --main-bg-color: #000000;
   --main-font: font-family: 'Rubik', sans-serif;
+  --li-font-size: 20px
 }
 
 html {
   font-family: 'Rubik', sans-serif;
   margin: 0;
+  background-color: 	#B80F0A;
 }
 
 body,
@@ -21,7 +23,50 @@ h3,
 h4,
 h5,
 h6,
-p {
-  padding: 5px;
+p,
+ul {
+  padding: 0px;
    font-family: 'Rubik', sans-serif;
+
+}
+
+.cards-field {
+  border-style: solid;
+  border-radius: 33px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  justify-items: center;
+}
+
+.card-field {
+  width: 20rem;
+  height: 30rem;
+  border-style: solid;
+  border-color: #000000;
+  border-radius: 33px;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  align-items: center;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.top-left-suit {
+  grid-area: 1/1;
+  font-size: 90px;
+}
+
+.center-number {
+  grid-area: 2/2;
+  font-size: 90px;
+}
+
+.bottom-right-number 
+{
+  grid-area: 3/3; 
+  font-size: 90px;
 }
