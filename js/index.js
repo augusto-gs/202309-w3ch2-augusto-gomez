@@ -18,14 +18,20 @@ const getDeckOfCards = () => {
 
   const deckOfCards = [];
 
-  let value = 0;
-
-  values.forEach((character) => {
-    value++;
+  values.forEach((character, position) => {
     cardSuits.forEach((suits) => {
-      deckOfCards.push({ value: value, character: character, suit: suits });
+      deckOfCards.push({
+        cardValues: position,
+        character: character,
+        suit: suits,
+      });
     });
   });
 
   return deckOfCards;
+};
+
+const getRandomCard = () => {
+  const randomNumber = Math.floor(Math.random() * getDeckOfCards().length);
+  return getDeckOfCards()[randomNumber];
 };
