@@ -15,25 +15,26 @@
 
 <body>
   <header>
-    <h1>Guessing game: Greater or smaller</h1>
+    <h1 class="game-title">Guessing game: Greater or smaller</h1>
   </header>
   <main>
     <div class="cards-field">
       <ul class="card-field user-card">
-        <li class="top-left-suit">♦️</li>
-        <li class="center-number">4</li>
-        <li class="bottom-right-number">♦️</li>
+        <li class="top-left-suit user-card-suit"></li>
+        <li class="center-number user-character"></li>
+        <li class="bottom-right-suit user-card-suit"></li>
       </ul>
       <ul class="card-field invisible-card">
-        <li class="top-left-suit">♠️</li>
-        <li class="center-number">3</li>
-        <li class="bottom-right-number">♣️</li>
+        <li class="top-left-suit invisible-card-suit"></li>
+        <li class="center-number invisible-character"></li>
+        <li class="bottom-right-suit invisible-card-suit"></li>
       </ul>
     </div>
-    <div>
-      <button type="button">Greater</button>
-      <button type="button">smaller</button>
+    <div class="button-container">
+      <button type="button" class="button comparative-buttons">Greater</button>
+      <button type="button" class="button comparative-buttons">Smaller</button>
     </div>
+
   </main>
 </body>
 

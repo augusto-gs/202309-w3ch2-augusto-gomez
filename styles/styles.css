@@ -30,9 +30,13 @@ ul {
 
 }
 
+.game-title {
+  display: flex;
+  justify-content: center;
+}
+
 .cards-field {
-  border-style: solid;
-  border-radius: 33px;
+  
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, 50%);
@@ -49,6 +53,7 @@ ul {
   grid-template-columns: repeat(3, 33%);
   align-items: center;
   text-align: center;
+  background-color: #ffffff;
 }
 
 li {
@@ -65,8 +70,20 @@ li {
   font-size: 90px;
 }
 
-.bottom-right-number 
+.bottom-right-suit 
 {
   grid-area: 3/3; 
   font-size: 90px;
 }
+
+.button-container {
+display: flex;
+justify-content: center;
+}
+
+.button{
+  padding: 10px;
+  margin: 10px;
+  border-radius: 33px;
+}
+
