@@ -57,6 +57,8 @@ const invisibleCardSuit = document.querySelectorAll(".invisible-card-suit");
 const userCardSuit = document.querySelectorAll(".user-card-suit");
 const userCardNumber = document.querySelector(".user-character");
 const invisibleCardNumber = document.querySelector(".invisible-character");
+const greaterButton = document.querySelector(".greater-button");
+const smallerButton = document.querySelector(".smaller-button");
 
 const generateInvisibleCard = () => {
   invisibleCardSuit.forEach((htmlElement) => {
@@ -74,3 +76,16 @@ const generateUserCard = () => {
   userCardNumber.textContent = userCard.character;
 };
 generateUserCard();
+invisibleCardNumber.textContent = "?";
+
+const detectClickOfComparativeButtons = () => {
+  greaterButton.addEventListener("click", () => {
+    generateInvisibleCard();
+  });
+
+  smallerButton.addEventListener("click", () => {
+    generateInvisibleCard();
+  });
+};
+
+detectClickOfComparativeButtons();
