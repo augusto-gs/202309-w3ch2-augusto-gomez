@@ -1,3 +1,20 @@
+const invisibleCardSuit = document.querySelectorAll(".invisible-card-suit");
+const userCardSuit = document.querySelectorAll(".user-card-suit");
+const userCardNumber = document.querySelector(".user-character");
+const invisibleCardNumber = document.querySelector(".invisible-character");
+const invisibleCardElement = document.querySelector(".invisible-card");
+const greaterButton = document.querySelector(".greater-button");
+const smallerButton = document.querySelector(".smaller-button");
+const correctGuessText = document.querySelector(".correct-feedback-text");
+const wrongGuessText = document.querySelector(".wrong-feedback-text");
+const startButton = document.querySelector(".start-button");
+const mainElement = document.querySelector(".main-element");
+
+startButton.addEventListener("click", () => {
+  startButton.classList.toggle("hidden");
+  mainElement.classList.toggle("hidden");
+});
+
 const getDeckOfCards = () => {
   const values = [
     "2",
@@ -53,15 +70,6 @@ const getMatchResult = () => {
   return cardComparation;
 };
 
-const invisibleCardSuit = document.querySelectorAll(".invisible-card-suit");
-const userCardSuit = document.querySelectorAll(".user-card-suit");
-const userCardNumber = document.querySelector(".user-character");
-const invisibleCardNumber = document.querySelector(".invisible-character");
-const greaterButton = document.querySelector(".greater-button");
-const smallerButton = document.querySelector(".smaller-button");
-const correctGuessText = document.querySelector(".correct-feedback-text");
-const wrongGuessText = document.querySelector(".wrong-feedback-text");
-
 const generateInvisibleCard = () => {
   invisibleCardSuit.forEach((htmlElement) => {
     htmlElement.textContent = invisibleCard.suit;
@@ -79,11 +87,11 @@ const generateUserCard = () => {
 };
 generateUserCard();
 
-invisibleCardNumber.textContent = "?";
-
 const detectClickOfComparativeButtons = () => {
   greaterButton.addEventListener("click", () => {
     generateInvisibleCard();
+    invisibleCardElement.classList.remove("invisible-card");
+
     if (getMatchResult()[2] === "Your card is greater") {
       correctGuessText.classList.remove("hidden");
     } else if (
@@ -96,6 +104,8 @@ const detectClickOfComparativeButtons = () => {
 
   smallerButton.addEventListener("click", () => {
     generateInvisibleCard();
+    invisibleCardElement.classList.remove("invisible-card");
+
     if (getMatchResult()[2] === "Your card is smaller") {
       correctGuessText.classList.remove("hidden");
     } else if (

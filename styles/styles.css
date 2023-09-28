@@ -56,10 +56,18 @@ ul {
   align-items: center;
   text-align: center;
   background-color: #ffffff;
+  
 }
 
 li {
   list-style-type: none;
+}
+
+.invisible-card {
+  background-image: url(/images/yugioh.webp);
+  background-repeat: no-repeat;
+background-position: center center;
+background-size: cover;
 }
 
 .top-left-suit {
