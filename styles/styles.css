@@ -96,16 +96,11 @@ justify-content: center;
   margin: 10px;
   border-radius: 33px;
 }
-.user-feedback-text {
-  align-items: center;
-  text-align: center;
-}
 
 .feedback-container {
    display: flex;
     justify-content: center;
 }
-
 
 .hidden {
   visibility: hidden;

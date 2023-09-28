@@ -9,6 +9,8 @@ const correctGuessText = document.querySelector(".correct-feedback-text");
 const wrongGuessText = document.querySelector(".wrong-feedback-text");
 const startButton = document.querySelector(".start-button");
 const mainElement = document.querySelector(".main-element");
+const buttonContainer = document.querySelector(".button-container");
+const feedbackContainer = document.querySelector(".feedback-container");
 
 startButton.addEventListener("click", () => {
   startButton.classList.toggle("hidden");
@@ -93,13 +95,15 @@ const detectClickOfComparativeButtons = () => {
     invisibleCardElement.classList.remove("invisible-card");
 
     if (getMatchResult()[2] === "Your card is greater") {
-      correctGuessText.classList.remove("hidden");
+      correctGuessText.textContent = "You guessed it!";
     } else if (
       getMatchResult()[2] === "Equal" ||
       getMatchResult()[2] != "Your card is greater"
     ) {
-      wrongGuessText.classList.remove("hidden");
+      wrongGuessText.textContent = "You got it wrong!😔 Maybe next time!😊";
     }
+    greaterButton.disabled = true;
+    smallerButton.disabled = true;
   });
 
   smallerButton.addEventListener("click", () => {
@@ -107,14 +111,19 @@ const detectClickOfComparativeButtons = () => {
     invisibleCardElement.classList.remove("invisible-card");
 
     if (getMatchResult()[2] === "Your card is smaller") {
-      correctGuessText.classList.remove("hidden");
+      correctGuessText.textContent = "You guessed it!";
     } else if (
       getMatchResult()[2] === "Equal" ||
       getMatchResult()[2] != "Your card is smaller"
     ) {
-      wrongGuessText.classList.remove("hidden");
+      wrongGuessText.textContent = "You got it wrong!😔 Maybe next time!😊";
     }
+    greaterButton.disabled = true;
+    smallerButton.disabled = true;
   });
 };
 
 detectClickOfComparativeButtons();
+//  const positiveFeedbackMessage = document.createElement("h2");
+//  positiveFeedbackMessage.textContent = "You guessed it";
+//  feedbackContainer.appendChild(positiveFeedbackMessage);
