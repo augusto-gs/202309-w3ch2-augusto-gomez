@@ -14,10 +14,12 @@
 </head>
 
 <body>
-  <header>
-    <h1 class="game-title">Guessing game: Greater or smaller</h1>
+  <header class="game-title">
+    <h1>Guessing game: Greater or smaller</h1>
+    <button type="button" class="start-button">Start Game</button>
   </header>
-  <main>
+
+  <main class="hidden">
     <div class="cards-field">
       <ul class="card-field user-card">
         <li class="top-left-suit user-card-suit"></li>
@@ -30,12 +32,17 @@
         <li class="bottom-right-suit invisible-card-suit"></li>
       </ul>
     </div>
+    <div class="feedback-container">
+      <h2 class="hidden correct-feedback-text">You guessed it!</h2>
+      <h2 class="hidden wrong-feedback-text">You got it wrong!😔 Maybe next time!😊</h2>
+    </div>
     <div class="button-container">
       <button type="button" class="button greater-button">Greater</button>
       <button type="button" class="button smaller-button">Smaller</button>
     </div>
 
   </main>
+
 </body>
 
 </html>

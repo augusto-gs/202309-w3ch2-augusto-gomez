@@ -32,7 +32,9 @@ ul {
 
 .game-title {
   display: flex;
-  justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cards-field {
@@ -86,9 +88,17 @@ justify-content: center;
   margin: 10px;
   border-radius: 33px;
 }
+.user-feedback-text {
+  align-items: center;
+  text-align: center;
+}
 
-.img {
-  width: 100%;
-  position: relative;
-  top: 20px;
+.feedback-container {
+   display: flex;
+    justify-content: center;
+}
+
+
+.hidden {
+  visibility: hidden;
 }
