@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="description"
+    content="Card game were you will test your odds. Play with lady luck and guess what the invisible card holds">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/index.js" defer></script>
   <link rel="stylesheet" href="styles/styles.css">
@@ -15,8 +17,8 @@
 
 <body>
   <header class="game-title">
-    <h1>Guessing game: Greater or smaller</h1>
-    <button type="button" class="start-button">Start Game</button>
+    <h1 class="title-text">Guessing game: Greater or smaller</h1>
+    <button type="button" class="button start-button">Start Game</button>
   </header>
 
   <main class="main-element hidden">
@@ -33,12 +35,14 @@
       </ul>
     </div>
     <div class="feedback-container">
-      <span class="correct-feedback-text"></span>
-      <span class="wrong-feedback-text"></span>
+      <span class="feedback-text correct-feedback-text"></span>
+      <span class="feedback-text wrong-feedback-text"></span>
+      <span class="feedback-text equal-feedback-text"></span>
     </div>
     <div class="button-container">
       <button type="button" class="button greater-button">Greater</button>
       <button type="button" class="button smaller-button">Smaller</button>
+      <button type="button" class="button equal-button">Equal</button>
     </div>
   </main>
 

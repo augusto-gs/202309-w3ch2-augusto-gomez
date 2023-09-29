@@ -11,11 +11,8 @@ const startButton = document.querySelector(".start-button");
 const mainElement = document.querySelector(".main-element");
 const buttonContainer = document.querySelector(".button-container");
 const feedbackContainer = document.querySelector(".feedback-container");
-
-startButton.addEventListener("click", () => {
-  startButton.classList.toggle("hidden");
-  mainElement.classList.toggle("hidden");
-});
+const equalButton = document.querySelector(".equal-button");
+const equalFeedbackText = document.querySelector(".equal-feedback-text");
 
 const getDeckOfCards = () => {
   const values = [
@@ -55,17 +52,14 @@ const getRandomCard = () => {
   return getDeckOfCards()[randomNumber];
 };
 
-const invisibleCard = getRandomCard();
-const userCard = getRandomCard();
-
 const getMatchResult = () => {
-  const cardComparation = [invisibleCard, userCard];
+  const cardComparation = [getRandomCard(), getRandomCard()];
 
-  if (invisibleCard.cardValues < userCard.cardValues) {
-    cardComparation.push("Your card is greater");
-  } else if (invisibleCard.cardValues > userCard.cardValues) {
-    cardComparation.push("Your card is smaller");
-  } else if (invisibleCard.cardValues === userCard.cardValues) {
+  if (getRandomCard().cardValues < getRandomCard().cardValues) {
+    cardComparation.push("User card is smaller");
+  } else if (getRandomCard().cardValues > getRandomCard().cardValues) {
+    cardComparation.push("User card is bigger");
+  } else if (getRandomCard().cardValues === getRandomCard().cardValues) {
     cardComparation.push("Equal");
   }
 
@@ -74,56 +68,73 @@ const getMatchResult = () => {
 
 const generateInvisibleCard = () => {
   invisibleCardSuit.forEach((htmlElement) => {
-    htmlElement.textContent = invisibleCard.suit;
+    htmlElement.textContent = getRandomCard().suit;
   });
 
-  invisibleCardNumber.textContent = invisibleCard.character;
+  invisibleCardNumber.textContent = getRandomCard().character;
 };
 
 const generateUserCard = () => {
   userCardSuit.forEach((htmlElement) => {
-    htmlElement.textContent = userCard.suit;
+    htmlElement.textContent = getRandomCard().suit;
   });
 
-  userCardNumber.textContent = userCard.character;
+  userCardNumber.textContent = getRandomCard().character;
 };
-generateUserCard();
 
 const detectClickOfComparativeButtons = () => {
   greaterButton.addEventListener("click", () => {
     generateInvisibleCard();
     invisibleCardElement.classList.remove("invisible-card");
 
-    if (getMatchResult()[2] === "Your card is greater") {
+    if (getMatchResult()[2] === "Equal") {
+      wrongGuessText.textContent = "You got it wrong!😔 Maybe next time!😊";
+    } else if (getMatchResult()[2] === "User card is bigger") {
+      wrongGuessText.textContent = "You got it wrong!😔 Maybe next time!😊";
+    } else if (getMatchResult()[2] === "User card is smaller") {
       correctGuessText.textContent = "You guessed it!";
-    } else if (
-      getMatchResult()[2] === "Equal" ||
-      getMatchResult()[2] != "Your card is greater"
-    ) {
+    }
+
+    greaterButton.disabled = true;
+    smallerButton.disabled = true;
+    equalButton.disabled = true;
+  });
+
+  equalButton.addEventListener("click", () => {
+    generateInvisibleCard();
+    invisibleCardElement.classList.remove("invisible-card");
+
+    if (getMatchResult()[2] === "Equal") {
+      equalFeedbackText.textContent = "Wow. You were right on the money!😮";
+    } else if (getMatchResult()[2] != "Equal") {
       wrongGuessText.textContent = "You got it wrong!😔 Maybe next time!😊";
     }
     greaterButton.disabled = true;
     smallerButton.disabled = true;
+    equalButton.disabled = true;
   });
 
   smallerButton.addEventListener("click", () => {
     generateInvisibleCard();
     invisibleCardElement.classList.remove("invisible-card");
 
-    if (getMatchResult()[2] === "Your card is smaller") {
+    if (getMatchResult()[2] === "User card is bigger") {
       correctGuessText.textContent = "You guessed it!";
-    } else if (
-      getMatchResult()[2] === "Equal" ||
-      getMatchResult()[2] != "Your card is smaller"
-    ) {
+    } else if (getMatchResult()[2] === "User card is smaller") {
       wrongGuessText.textContent = "You got it wrong!😔 Maybe next time!😊";
+    } else if (getMatchResult()[2] === "Equal") {
+      equalFeedbackText.textContent = "Wow. You were right on the money!😮";
     }
+
     greaterButton.disabled = true;
     smallerButton.disabled = true;
+    equalButton.disabled = true;
   });
 };
 
-detectClickOfComparativeButtons();
-//  const positiveFeedbackMessage = document.createElement("h2");
-//  positiveFeedbackMessage.textContent = "You guessed it";
-//  feedbackContainer.appendChild(positiveFeedbackMessage);
+startButton.addEventListener("click", () => {
+  startButton.classList.toggle("hidden");
+  mainElement.classList.toggle("hidden");
+  generateUserCard();
+  detectClickOfComparativeButtons();
+});
