@@ -1,24 +1,23 @@
+:root {
+  --main-bg-color: #000000;
+  --main-font: "Rubik", sans-serif;
+  --li-font-size: 20px;
+}
+
 *,
 ::before,
 ::after {
   box-sizing: border-box;
 }
 
-:root {
-  --main-bg-color: #000000;
-  --main-font: font-family: 'Rubik', sans-serif;
-  --li-font-size: 20px
-}
-
 html {
-  font-family: 'Rubik', sans-serif;
+  font-family: var(--main-font);
   margin: 0;
-  background-color: 	#B80F0A;
+  background-color: #b80f0a;
   background-image: url(/images/red-poker-background_6735-67.avif);
   background-repeat: repeat;
-background-position: center center;
-background-size: cover;
-   
+  background-position: center center;
+  background-size: cover;
 }
 
 body,
@@ -31,25 +30,22 @@ h6,
 p,
 ul {
   padding: 0px;
-   font-family: 'Rubik', sans-serif;
-   text-shadow:-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
-
+  font-family: var(--main-font);
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
-
 
 .game-title {
   display: flex;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title.text {
- text-shadow:-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .cards-field {
-  
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, 50%);
@@ -60,16 +56,15 @@ ul {
   width: 20rem;
   height: 30rem;
   border-style: solid;
-  border-color: #000000;
+  color: var(--main-bg-color);
   border-radius: 33px;
-border-width: thick;
+  border-width: thick;
   display: grid;
   grid-template-columns: repeat(3, 33%);
   align-items: center;
   text-align: center;
   background-color: #ffffff;
-  box-shadow:  20px 14px 0px
-  
+  box-shadow: 20px 14px 0px;
 }
 
 li {
@@ -79,8 +74,8 @@ li {
 .invisible-card {
   background-image: url(/images/yugioh.webp);
   background-repeat: no-repeat;
-background-position: center center;
-background-size: cover;
+  background-position: center center;
+  background-size: cover;
 }
 
 .top-left-suit {
@@ -93,32 +88,30 @@ background-size: cover;
   font-size: 90px;
 }
 
-.bottom-right-suit 
-{
-  grid-area: 3/3; 
+.bottom-right-suit {
+  grid-area: 3/3;
   font-size: 90px;
 }
 
 .button-container {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.button{
+.button {
   padding: 10px;
   margin: 10px;
   border-radius: 33px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 .feedback-container {
-   display: flex;
-    justify-content: center;
-    font-size: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
 }
-.feedback-text{
-font-size: 30px;
+.feedback-text {
+  font-size: 30px;
 }
 
 .hidden {
