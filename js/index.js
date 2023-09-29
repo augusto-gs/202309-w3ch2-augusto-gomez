@@ -52,14 +52,16 @@ const getRandomCard = () => {
   return getDeckOfCards()[randomNumber];
 };
 
-const getMatchResult = () => {
-  const cardComparation = [getRandomCard(), getRandomCard()];
+const invisibleCard = getRandomCard();
+const userCard = getRandomCard();
+const cardComparation = [invisibleCard, userCard];
 
-  if (getRandomCard().cardValues < getRandomCard().cardValues) {
+const getMatchResult = () => {
+  if (userCard.cardValues < invisibleCard.cardValues) {
     cardComparation.push("User card is smaller");
-  } else if (getRandomCard().cardValues > getRandomCard().cardValues) {
+  } else if (userCard.cardValues > invisibleCard.cardValues) {
     cardComparation.push("User card is bigger");
-  } else if (getRandomCard().cardValues === getRandomCard().cardValues) {
+  } else if (userCard.cardValues === invisibleCard.cardValues) {
     cardComparation.push("Equal");
   }
 
@@ -68,18 +70,18 @@ const getMatchResult = () => {
 
 const generateInvisibleCard = () => {
   invisibleCardSuit.forEach((htmlElement) => {
-    htmlElement.textContent = getRandomCard().suit;
+    htmlElement.textContent = invisibleCard.suit;
   });
 
-  invisibleCardNumber.textContent = getRandomCard().character;
+  invisibleCardNumber.textContent = invisibleCard.character;
 };
 
 const generateUserCard = () => {
   userCardSuit.forEach((htmlElement) => {
-    htmlElement.textContent = getRandomCard().suit;
+    htmlElement.textContent = userCard.suit;
   });
 
-  userCardNumber.textContent = getRandomCard().character;
+  userCardNumber.textContent = userCard.character;
 };
 
 const detectClickOfComparativeButtons = () => {
@@ -123,7 +125,7 @@ const detectClickOfComparativeButtons = () => {
     } else if (getMatchResult()[2] === "User card is smaller") {
       wrongGuessText.textContent = "You got it wrong!😔 Maybe next time!😊";
     } else if (getMatchResult()[2] === "Equal") {
-      equalFeedbackText.textContent = "Wow. You were right on the money!😮";
+      equalFeedbackText.textContent = "You got it wrong!😔 Maybe next time!😊";
     }
 
     greaterButton.disabled = true;
